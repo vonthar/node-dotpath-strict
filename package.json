@@ -1,6 +1,6 @@
 {
   "name": "dotpath-strict",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Get or set property value by dotpath string, throws on failure.",
   "keywords": [
     "object",
@@ -17,13 +17,13 @@
     "name": "vonthar",
     "email": "vonthar@tfwno.gf"
   },
-  "homepage": "https://github.com/vonthar/dotpath-strict",
+  "homepage": "https://github.com/vonthar/node-dotpath-strict",
   "repository": {
     "type": "git",
-    "url": "git://github.com/vonthar/dotpath-strict.git"
+    "url": "git://github.com/vonthar/node-dotpath-strict.git"
   },
   "bugs": {
-    "url": "https://github.com/vonthar/dotpath-strict/issues"
+    "url": "https://github.com/vonthar/node-dotpath-strict/issues"
   },
   "main": "src/dotpath.js",
   "scripts": {
