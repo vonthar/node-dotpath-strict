@@ -1,0 +1,39 @@
+{
+  "name": "dotpath-strict",
+  "version": "1.0.0",
+  "description": "Get or set property value by dotpath string, throws on failure.",
+  "keywords": [
+    "object",
+    "property",
+    "selector",
+    "get",
+    "dot",
+    "path",
+    "dotpath",
+    "dot-path"
+  ],
+  "license": "MPL-2.0",
+  "author": {
+    "name": "vonthar",
+    "email": "vonthar@tfwno.gf"
+  },
+  "homepage": "https://github.com/vonthar/dotpath-strict",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vonthar/dotpath-strict.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vonthar/dotpath-strict/issues"
+  },
+  "main": "src/dotpath.js",
+  "scripts": {
+    "test": "node test/dotpath-tests.js",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "eslint": "^2.11.1",
+    "eslint-config-google": "^0.5.0"
+  }
+}
