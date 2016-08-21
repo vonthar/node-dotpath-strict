@@ -1,2 +1,4 @@
-﻿node_modules
-.eslintrc.json
+.nyc_output
+coverage
+node_modules
+npm-debug.log

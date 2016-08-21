@@ -1,51 +1,65 @@
-﻿dotpath-strict
-==============
+node-dotpath-strict
+===============================================================================
 [![NPM Package](https://img.shields.io/npm/v/dotpath-strict.svg)](https://www.npmjs.org/package/dotpath-strict)
 [![Build Status](https://travis-ci.org/vonthar/node-dotpath-strict.svg?branch=master)](https://travis-ci.org/vonthar/node-dotpath-strict/branches)
+[![Coverage Status](https://coveralls.io/repos/github/vonthar/node-dotpath-strict/badge.svg?branch=master)](https://coveralls.io/github/vonthar/node-dotpath-strict?branch=master)
+[![Dependency Status](https://david-dm.org/vonthar/node-dotpath-strict.svg)](https://david-dm.org/vonthar/node-dotpath-strict)
 
 ### Aren't there a million of these already?
+I couldn't find one that distinguishes between a property that is unset and one that is
+set to undefined so I made this. It throws an error when attempting to access a
+nonexisting property. Supports basic dot notation and numeric brackets.
 
-I couldn't find one that distinguishes between a property that is unset and one that is set to undefined so I made this one. It throws an error when attempting to access a nonexisting property. Supports basic dot notation and numeric brackets.
-
+**Example**  
+```js
+var dotPath = require("dotpath-strict");
+var post = { title: "Readme", author: { firstName: "Hugh", lastName: "Mungus" } };
+dotPath(post, "author.firstName");
+//"Hugh"
+```
 Installation
 ------------
 `npm i dotpath-strict`
 
-Usage
------
-### dotpath(object, path, [value]) => value
+API Reference
+-------------
+<a name="exp_module_dotpath-strict--dotPath"></a>
 
-__Arguments__
-* `object`
-* `path`
-* `value` *optional* Set property to this value
+### dotPath(object, path, [value]) ⇒ <code>\*</code> ⏏
+**Kind**: Exported function  
+**Throws**:
 
-Example
--------
+- <code>ReferenceError</code> 
+- <code>TypeError</code> 
+
+**Params**
+
+- object <code>Object</code>
+- path <code>string</code>
+- [value] <code>string</code> - Set property to this value
+
+**Example**  
 ```js
 var obj = { a: { aa: 1, ab: [ "1", "2" ] }, b: undefined, c: null };
-var dotpath = require("dotpath-strict");
-dotpath(obj, "a.aa");
+dotPath(obj, "a.aa");
 //1
-dotpath(obj, "a.ab[1]");
+dotPath(obj, "a.ab[1]");
 //"2"
-dotpath(obj, "b");
+dotPath(obj, "b");
 //undefined
-dotpath(obj, "c");
+dotPath(obj, "c");
 //null
-dotpath(obj, "d");
+dotPath(obj, "d");
 //ReferenceError: d is not defined
-dotpath(obj, "d", "2");
+dotPath(obj, "d", "2");
 //"2"
-dotpath(obj, "d.e", 3);
+dotPath(obj, "d.e", 3);
 //TypeError: d is not an object
-dotpath(obj, "d", { e: 3 });
+dotPath(obj, "d", { e: 3 });
 //{ e: 3 }
-dotpath(obj, "d.e");
+dotPath(obj, "d.e");
 //3
 ```
-
 License
 -------
 MPL 2.0
-
