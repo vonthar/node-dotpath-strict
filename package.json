@@ -1,6 +1,6 @@
 {
   "name": "dotpath-strict",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Get or set property value by dotpath string, throws on failure.",
   "keywords": [
     "object",
@@ -27,14 +27,16 @@
   },
   "main": "src/dotpath.js",
   "scripts": {
-    "test": "nyc tape test/*.js",
+    "test": "nyc -n src/*.js tape test/*.js",
     "coverage": "npm test && nyc report --reporter=text-lcov | coveralls",
     "lint": "eslint -c node_modules/@vonthar/pkgdev/etc/eslintrc.json src/*.js",
     "docs": "jsdoc2md -p list -r list -t node_modules/@vonthar/pkgdev/etc/jsdoc2md.hbs src/*.js > README.md",
     "preversion": "npm test && git add .",
     "postversion": "git push -u origin master && git push origin master --tags && npm publish"
   },
-  "dependencies": {},
+  "dependencies": {
+    "is-nullish": "^1.0.0"
+  },
   "devDependencies": {
     "@vonthar/pkgdev": "git+https://github.com/vonthar/pkgdev.git",
     "coveralls": "^2.11.12",
@@ -42,5 +44,18 @@
     "eslint-config-xo": "^0.15.3",
     "nyc": "^8.1.0",
     "tape": "^4.6.0"
+  },
+  "testling": {
+    "files": "test/*.js",
+    "browsers": [
+      "ie/6..latest",
+      "chrome/22..latest",
+      "firefox/16..latest",
+      "safari/latest",
+      "opera/11.0..latest",
+      "iphone/6",
+      "ipad/6",
+      "android-browser/latest"
+    ]
   }
 }

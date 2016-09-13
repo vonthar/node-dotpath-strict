@@ -1,5 +1,6 @@
 "use strict";
 
+var isNull = require("is-nullish");
 /**
  * ### Aren't there a million of these already?
  * I couldn't find one that distinguishes between a property that is unset and one that is
@@ -91,29 +92,5 @@ function dotPath(object, path, value) {
     return object[name];
   }
   throw new ReferenceError(path + " is not defined");
-}
-
-
-/**
- * @private
- * @param {*} obj
- * @returns {boolean}
- */
-function isNull(obj) {
-  if (typeof obj === "undefined") {
-    return true;
-  }
-  if (obj === null || obj.length === 0 || Number.isNaN(obj)) {
-    return true;
-  }
-  if (typeof obj === "object") {
-    for (var key in obj) {
-      if (!isNull(key)) {
-        return false;
-      }
-    }
-    return true;
-  }
-  return false;
 }
 
